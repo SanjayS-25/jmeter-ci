@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+        <collectionProp name="Arguments.arguments"/>
+      </Arguments>
+      <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+          <collectionProp name="Arguments.arguments"/>
+        </elementProp>
+        <stringProp name="HTTPSampler.implementation"></stringProp>
+      </ConfigTestElement>
+      <hashTree/>
+      <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+        <collectionProp name="CookieManager.cookies"/>
+        <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
+      </CookieManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group">
+        <intProp name="ThreadGroup.num_threads">1</intProp>
+        <intProp name="ThreadGroup.ramp_time">1</intProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+          <stringProp name="LoopController.loops">1</stringProp>
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+        </elementProp>
+      </ThreadGroup>
+      <hashTree>
+        <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller"/>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Refractio Others -CF">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-1">
+              <stringProp name="HTTPSampler.domain">uateyenotes.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/eyenotes/(S(ldwboxtpfu04rxtxaud0ziv3))/emrCentralField/Popup</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="mode" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">mode</stringProp>
+                    <stringProp name="Argument.value">add</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="isReviewPatient" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">isReviewPatient</stringProp>
+                    <stringProp name="Argument.value">false</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+                <stringProp name="ConstantTimer.delay">0</stringProp>
+                <stringProp name="RandomTimer.range">100.0</stringProp>
+                <stringProp name="TestPlan.comments">Recorded:0ms</stringProp>
+              </UniformRandomTimer>
+              <hashTree/>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/eyenotes/(S(ldwboxtpfu04rxtxaud0ziv3))/ConsultentPage/ConsultentPage?mnuid=74&amp;mnutext=Consultation%20Page</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-origin</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html, */*; q=0.01</stringProp>
+                  </elementProp>
+                  <elementProp name="X-Requested-With" elementType="Header">
+                    <stringProp name="Header.name">X-Requested-With</stringProp>
+                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-2">
+              <stringProp name="HTTPSampler.domain">eyenotes20-uat.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">30434</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/agg/central-fields/initial-load</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">OPTIONS</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Request-Method" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Request-Method</stringProp>
+                    <stringProp name="Header.value">POST</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Request-Headers" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Request-Headers</stringProp>
+                    <stringProp name="Header.value">access-control-allow-headers,access-control-allow-methods,authorization,content-type</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-3">
+              <stringProp name="HTTPSampler.domain">eyenotes20-uat.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">30434</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/agg/central-fields/initial-load</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;module&quot;:&quot;emr_central_fields&quot;,&quot;uin&quot;:&quot;0023032123&quot;,&quot;peid&quot;:&quot;167613182&quot;,&quot;siteId&quot;:&quot;1&quot;,&quot;departmentId&quot;:&quot;6&quot;,&quot;userId&quot;:&quot;70540&quot;,&quot;mrNo&quot;:&quot;P5962713&quot;,&quot;ipaNo&quot;:&quot;0&quot;,&quot;mode&quot;:&quot;add&quot;,&quot;lastEnteredPeid&quot;:&quot;0&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Headers" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Headers</stringProp>
+                    <stringProp name="Header.value">Origin, Content-Type, X-Auth-Token, content-type</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Methods" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Methods</stringProp>
+                    <stringProp name="Header.value">GET,POST,OPTIONS,DELETE,PUT</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer token</stringProp>
+                  </elementProp>
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Refractio Others -CF">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-4">
+              <stringProp name="HTTPSampler.domain">eyenotes20-uat.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">30434</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/drawings/patient-central-fields/save</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">OPTIONS</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+                <stringProp name="ConstantTimer.delay">21628</stringProp>
+                <stringProp name="RandomTimer.range">100.0</stringProp>
+                <stringProp name="TestPlan.comments">Recorded:21628ms</stringProp>
+              </UniformRandomTimer>
+              <hashTree/>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Request-Method" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Request-Method</stringProp>
+                    <stringProp name="Header.value">POST</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Request-Headers" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Request-Headers</stringProp>
+                    <stringProp name="Header.value">access-control-allow-headers,access-control-allow-methods,authorization,content-type</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-5">
+              <stringProp name="HTTPSampler.domain">eyenotes20-uat.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">30434</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/drawings/patient-central-fields/save</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;ipaNo&quot;:&quot;0&quot;,&quot;peId&quot;:&quot;167613182&quot;,&quot;uid&quot;:&quot;0023032123&quot;,&quot;mrNo&quot;:&quot;P5962713&quot;,&quot;siteId&quot;:&quot;1&quot;,&quot;patientCentralFieldsDetails&quot;:[{&quot;eye&quot;:&quot;RE&quot;,&quot;imageBase64String&quot;:&quot;data:image/png;base64,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&quot;,&quot;testObjectSize&quot;:10,&quot;testObjectColour&quot;:&quot;White&quot;,&quot;testResult&quot;:&quot;&quot;,&quot;reason&quot;:&quot;&quot;,&quot;patientCentralFieldsResult&quot;:[{&quot;result&quot;:&quot;Contraction&quot;,&quot;displayOrder&quot;:1},{&quot;result&quot;:&quot;Double Arcuate Ring Scotoma&quot;,&quot;displayOrder&quot;:2},{&quot;result&quot;:&quot;Cecal Scotoma&quot;,&quot;displayOrder&quot;:3},{&quot;result&quot;:&quot;Blind Spot Enlargement&quot;,&quot;displayOrder&quot;:4},{&quot;result&quot;:&quot;Roenne’s Nasal Step&quot;,&quot;displayOrder&quot;:5},{&quot;result&quot;:&quot;Normal&quot;,&quot;displayOrder&quot;:6}],&quot;tubularField&quot;:&quot;0&quot;},{&quot;eye&quot;:&quot;LE&quot;,&quot;imageBase64String&quot;:&quot;data:image/png;base64,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&quot;,&quot;testObjectSize&quot;:10,&quot;testObjectColour&quot;:&quot;White&quot;,&quot;testResult&quot;:&quot;&quot;,&quot;reason&quot;:&quot;&quot;,&quot;patientCentralFieldsResult&quot;:[{&quot;result&quot;:&quot;Central Scotoma Retina Fields&quot;,&quot;displayOrder&quot;:1},{&quot;result&quot;:&quot;Blind Spot Enlargement&quot;,&quot;displayOrder&quot;:2},{&quot;result&quot;:&quot;Roenne’s Nasal Step&quot;,&quot;displayOrder&quot;:3},{&quot;result&quot;:&quot;Normal&quot;,&quot;displayOrder&quot;:4},{&quot;result&quot;:&quot;Sields Scotoma&quot;,&quot;displayOrder&quot;:5}],&quot;tubularField&quot;:&quot;0&quot;}],&quot;createdBy&quot;:&quot;70540&quot;,&quot;createdDeptId&quot;:&quot;6&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Headers" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Headers</stringProp>
+                    <stringProp name="Header.value">Origin, Content-Type, X-Auth-Token, content-type</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Methods" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Methods</stringProp>
+                    <stringProp name="Header.value">GET,POST,OPTIONS,DELETE,PUT</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer token</stringProp>
+                  </elementProp>
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-7">
+              <stringProp name="HTTPSampler.domain">eyenotes20-uat.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">30434</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/agg/routine-investigation/investigation-status/0023032123/167613182/6/70540/centralfields/true?_=1747725020105</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">OPTIONS</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Request-Method" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Request-Method</stringProp>
+                    <stringProp name="Header.value">GET</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Request-Headers" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Request-Headers</stringProp>
+                    <stringProp name="Header.value">content-type</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-6">
+              <stringProp name="HTTPSampler.domain">uateyenotes.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/eyenotes/central-fields/investigation-flag-update/</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;ModuleName&quot;:&quot;Central Fields&quot;,&quot;IsSaved&quot;:true,&quot;PeId&quot;:&quot;167613182&quot;,&quot;DepartmentId&quot;:&quot;6&quot;,&quot;UserId&quot;:&quot;70540&quot;,&quot;Flag&quot;:{&quot;TableName&quot;:&quot;emrPEEncounterDetail_CPage_OPModules&quot;,&quot;FieldWithStatusList&quot;:[{&quot;FieldName&quot;:&quot;CentralFields&quot;,&quot;Status&quot;:true}],&quot;PeId&quot;:&quot;167613182&quot;}}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/eyenotes/(S(ldwboxtpfu04rxtxaud0ziv3))/ConsultentPage/ConsultentPage?mnuid=74&amp;mnutext=Consultation%20Page</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-origin</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="X-Requested-With" elementType="Header">
+                    <stringProp name="Header.name">X-Requested-With</stringProp>
+                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                  </elementProp>
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-8">
+              <stringProp name="HTTPSampler.domain">eyenotes20-uat.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">30434</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/agg/routine-investigation/investigation-status/0023032123/167613182/6/70540/centralfields/true</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="_" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">_</stringProp>
+                    <stringProp name="Argument.value">1747725020105</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-9">
+              <stringProp name="HTTPSampler.domain">uateyenotes.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">443</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/eyenotes/(S(ldwboxtpfu04rxtxaud0ziv3))/emrCentralField/SummaryData</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="peId" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">peId</stringProp>
+                    <stringProp name="Argument.value">167613182</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="mode" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">mode</stringProp>
+                    <stringProp name="Argument.value">current</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="visitDate" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">visitDate</stringProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="userRole" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">userRole</stringProp>
+                    <stringProp name="Argument.value">111</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="isReviewPatient" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">isReviewPatient</stringProp>
+                    <stringProp name="Argument.value">false</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/eyenotes/(S(ldwboxtpfu04rxtxaud0ziv3))/ConsultentPage/ConsultentPage?mnuid=74&amp;mnutext=Consultation%20Page</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-origin</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html, */*; q=0.01</stringProp>
+                  </elementProp>
+                  <elementProp name="X-Requested-With" elementType="Header">
+                    <stringProp name="Header.name">X-Requested-With</stringProp>
+                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-10">
+              <stringProp name="HTTPSampler.domain">eyenotes20-uat.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">30434</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/agg/central-fields/summary/167613182/2025-05-20/true/0</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">OPTIONS</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Request-Method" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Request-Method</stringProp>
+                    <stringProp name="Header.value">GET</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Request-Headers" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Request-Headers</stringProp>
+                    <stringProp name="Header.value">access-control-allow-headers,access-control-allow-methods,authorization,content-type</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Refractio Others -CF-11">
+              <stringProp name="HTTPSampler.domain">eyenotes20-uat.aravind.org</stringProp>
+              <stringProp name="HTTPSampler.port">30434</stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/agg/central-fields/summary/167613182/2025-05-20/true/0</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Sec-Fetch-Mode" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Mode</stringProp>
+                    <stringProp name="Header.value">cors</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org/</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Site" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Site</stringProp>
+                    <stringProp name="Header.value">same-site</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Headers" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Headers</stringProp>
+                    <stringProp name="Header.value">Origin, Content-Type, X-Auth-Token, content-type</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">https://uateyenotes.aravind.org</stringProp>
+                  </elementProp>
+                  <elementProp name="Access-Control-Allow-Methods" elementType="Header">
+                    <stringProp name="Header.name">Access-Control-Allow-Methods</stringProp>
+                    <stringProp name="Header.value">GET,POST,OPTIONS,DELETE,PUT</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                  </elementProp>
+                  <elementProp name="Authorization" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">Bearer token</stringProp>
+                  </elementProp>
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate, br</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Sec-Fetch-Dest" elementType="Header">
+                    <stringProp name="Header.name">Sec-Fetch-Dest</stringProp>
+                    <stringProp name="Header.value">empty</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>true</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder">
+        <stringProp name="ProxyControlGui.port">8888</stringProp>
+        <collectionProp name="ProxyControlGui.exclude_list">
+          <stringProp name="1658855950">.*toolbar\.live\.com.*</stringProp>
+          <stringProp name="1179605444">(?i).*\.(bmp|css|js|gif|ico|jpe?g|png|swf|eot|otf|ttf|mp4|woff|woff2)</stringProp>
+          <stringProp name="1193216536">update\.microsoft\.com.*</stringProp>
+          <stringProp name="1323576868">toolbarqueries\.google\..*</stringProp>
+          <stringProp name="1629558731">clients.*\.google.*</stringProp>
+          <stringProp name="-1899150273">api\.bing\.com.*</stringProp>
+          <stringProp name="305776760">(?i).*\.(bmp|css|js|gif|ico|jpe?g|png|swf|eot|otf|ttf|mp4|woff|woff2)[\?;].*</stringProp>
+          <stringProp name="1779943373">us\.update\.toolbar\.yahoo\.com.*</stringProp>
+          <stringProp name="1815174768">safebrowsing.*\.google\.com.*</stringProp>
+          <stringProp name="587935979">g\.msn.*</stringProp>
+          <stringProp name="110431874">.*msg\.yahoo\.com.*</stringProp>
+          <stringProp name="1206954446">tiles.*\.mozilla\.com.*</stringProp>
+          <stringProp name="-1314416226">sqm\.microsoft\.com.*</stringProp>
+          <stringProp name="1726898318">geo\.yahoo\.com.*</stringProp>
+          <stringProp name="-88591710">www\.download\.windowsupdate\.com.*</stringProp>
+          <stringProp name="-192420923">.*yimg\.com.*</stringProp>
+          <stringProp name="2118375536">www\.google-analytics\.com.*</stringProp>
+          <stringProp name="1739087931">http?://self-repair\.mozilla\.org.*</stringProp>
+          <stringProp name="805311387">windowsupdate\.microsoft\.com.*</stringProp>
+          <stringProp name="-1424663473">.*detectportal\.firefox\.com.*</stringProp>
+          <stringProp name="11072252">.*toolbar\.yahoo\.com.*</stringProp>
+          <stringProp name="-190610036">.*\.google\.com.*/safebrowsing/.*</stringProp>
+          <stringProp name="-958112859">toolbar\.google\.com.*</stringProp>
+          <stringProp name="-1279148329">pgq\.yahoo\.com.*</stringProp>
+          <stringProp name="-1435252351">toolbar\.avg\.com/.*</stringProp>
+          <stringProp name="-576820688">toolbar\.msn\.com.*</stringProp>
+        </collectionProp>
+        <collectionProp name="ProxyControlGui.include_list"/>
+        <boolProp name="ProxyControlGui.capture_http_headers">true</boolProp>
+        <intProp name="ProxyControlGui.grouping_mode">4</intProp>
+        <boolProp name="ProxyControlGui.add_assertion">false</boolProp>
+        <stringProp name="ProxyControlGui.sampler_type_name"></stringProp>
+        <boolProp name="ProxyControlGui.sampler_redirect_automatically">false</boolProp>
+        <boolProp name="ProxyControlGui.sampler_follow_redirects">true</boolProp>
+        <boolProp name="ProxyControlGui.use_keepalive">true</boolProp>
+        <boolProp name="ProxyControlGui.sampler_download_images">false</boolProp>
+        <boolProp name="ProxyControlGui.regex_match">true</boolProp>
+        <stringProp name="ProxyControlGui.content_type_include"></stringProp>
+        <stringProp name="ProxyControlGui.content_type_exclude"></stringProp>
+        <boolProp name="ProxyControlGui.notify_child_sl_filtered">false</boolProp>
+        <stringProp name="ProxyControlGui.proxy_prefix_http_sampler_name">Refractio Others -CF</stringProp>
+        <intProp name="ProxyControlGui.proxy_http_sampler_naming_mode">1</intProp>
+        <stringProp name="ProxyControlGui.proxy_pause_http_sampler"></stringProp>
+        <boolProp name="ProxyControlGui.detect_graphql_request">true</boolProp>
+        <stringProp name="ProxyControlGui.default_encoding">UTF-8</stringProp>
+      </ProxyControl>
+      <hashTree>
+        <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Uniform Random Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">${T}</stringProp>
+          <stringProp name="RandomTimer.range">100.0</stringProp>
+        </UniformRandomTimer>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>true</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">recording.xml</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
